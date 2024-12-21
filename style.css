@@ -1,10 +1,15 @@
 /*font-family: "DM serif display", monospace;*/
 
+
+html {
+    overflow-x: hidden;
+}
+
 html::-webkit-scrollbar {
     display: none;
 }
 
-@media (orientation: portrait) and (width <= 500px) {
+@media (width <= 500px) {
     .buttons, .progress-box, .bgtable {
         display: none;
     }
@@ -18,6 +23,10 @@ html::-webkit-scrollbar {
     box-sizing: border-box;
     animation: bgcolor linear;
     animation-timeline: scroll();
+}
+
+.main.showbg {
+    background-color: #1a181b;
 }
 
 .screen-overlay {
@@ -365,6 +374,11 @@ html::-webkit-scrollbar {
     padding: 15px;
     margin-top: 100vh;
     height: 150vh;
+    z-index: 1;
+}
+
+.about-container.showbg {
+    background-color: #b4c5e4;
 }
 
 .name-container {
@@ -374,7 +388,7 @@ html::-webkit-scrollbar {
     opacity: 0;
     white-space: pre-line;
     margin-top: 14vh;
-    margin-left: 50px;
+    margin-left: 1vw;
     display: grid;
     grid-template-rows: repeat(3, 150px);
     grid-template-columns: repeat(5, 1fr);
@@ -391,12 +405,24 @@ html::-webkit-scrollbar {
     font-size: 2.5rem;
     font-family: "DM serif display", monospace;
     transition: transform 1s ease, background-color 1s ease, color 1s ease;
-    height: 100%;
     border-radius: 10px;
     background-color: #2a65dd;
     padding-left: 5%;
     z-index: 5;
+    white-space: pre-line;
     box-shadow: 5px 5px 4px #1a181b;
+}
+
+#name-container-left-header {
+    font-size: 3rem;
+    white-space: pre-line;
+}
+
+#name-container-left-text {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    white-space: pre-line;
 }
 
 #name-container-left:hover{
@@ -419,22 +445,6 @@ html::-webkit-scrollbar {
     z-index: 1;
     box-shadow: 5px 5px 4px #1a181b;
     overflow-y: auto;
-}
-
-
-@media screen and (width <= 1000px) {
-    #name-container-right {
-        font-size: 4vw;
-    }
-    #name-container-hob {
-        font-size: 3.5vw;
-    }
-    #name-container-hob h1{
-        font-size: 4vw;
-    }
-    #name-container-hob:hover {
-        width: 30vw;
-    }
 }
 
 #name-container-right span, #name-container-hob span {
@@ -474,6 +484,66 @@ html::-webkit-scrollbar {
     color: #fff3f0;
 }
 
+
+@media screen and (width <= 1000px) and (orientation: portrait) {
+    .name-container {
+        gap: 2px;
+        justify-self: left;
+    }
+    #name-container-left-header {
+        font-size: 6vw;
+    }
+    #name-container-left-text {
+        font-size: 6vw;
+    }
+    #name-container-right {
+        font-size: 4vw;
+    }
+    #name-container-hob {
+        font-size: 3.5vw;
+    }
+    #name-container-hob h1{
+        font-size: 4vw;
+    }
+}
+
+@media (width <= 1000px) and (orientation: landscape) {
+    .name-container {
+        grid-template-rows: repeat(4, 75px);
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas: 
+        "   item1   item1   item1   item1   "
+        "   item2   item2   item2   item2   "
+        "   item2   item2   item2   item2   "
+        "   item3   item3   item3   item3   "
+    ;
+    }
+    #name-container-left, #name-container-right, #name-container-hob {
+        transform: translateX(0);
+    }
+    #name-container-left:hover, #name-container-right:hover, #name-container-hob:hover {
+        transform: scale(1);
+    }
+    #name-container-left-header {
+        display: none;
+    }
+    #name-container-left {
+        max-height: 0.25fr;
+    }
+    #name-container-left-text {
+        font-size: 4vw;
+    }
+    #name-container-right {
+        font-size: 4vw;
+    }
+    #name-container-hob {
+        font-size: 3.5vw;
+    }
+    #name-container-hob h1{
+        font-size: 4vw;
+    }
+}
+
 @keyframes zoomin {
     from {
         scale: 1;
@@ -493,6 +563,9 @@ html::-webkit-scrollbar {
 }
 
 .subject-container {
+    position: absolute;
+    margin-top: 10vh;
+    margin-left: 1vw;
     animation: appear linear;
     animation-timeline: view();
     animation-range: entry 0 cover 80%;
@@ -518,7 +591,7 @@ html::-webkit-scrollbar {
     width: 65vw;
     height: 4vw;
     position: absolute;
-    top: 1vw;
+    top: 4.5vw;
     left: 0;
     animation: reducewidth 5s ease-in-out;
     animation-iteration-count: infinite;
@@ -538,20 +611,21 @@ html::-webkit-scrollbar {
     animation-delay: 0.4s;
 }
 
-@media screen and (width <= 505px) {
-    .subject-container {
-        display: none;
-    }
-}
-
 .subject-graph {
     position: absolute;
-    margin-top: 30vh;
+    margin-top: 50vh;
+    margin-left: 1vw;
     animation: appear linear;
     animation-timeline: view();
     animation-range: entry 0 cover 80%;
     opacity: 0;
     width: 50vw;
+}
+
+@media screen and (orientation: portrait) {
+    .subject-graph {
+        width: 80vw;
+    }
 }
 
 @keyframes reducewidth {
@@ -595,11 +669,18 @@ html::-webkit-scrollbar {
         scale: 0.5;
         transform: translateX(150px);
     }
+
+
 }
 
 .acad-container {
     margin-top: 100vh;
     height: 600vh;
+    z-index: 1;
+}
+
+.acad-container.showbg {
+    background-color: #006dd6;
 }
 
 .acadIntro-box {
@@ -610,7 +691,7 @@ html::-webkit-scrollbar {
     opacity: 0;
     white-space: pre-line;
     margin-top: 14vh;
-    margin-left: 50px;
+    margin-left: 2vw;
     width: 60%;
     font-family: "DM serif display", monospace;
     background-color: #b4c5e4;
@@ -621,18 +702,18 @@ html::-webkit-scrollbar {
 
 .acad-container h1 {
     font-weight: bold;
-    font-size: 50px;
+    font-size: 3vw;
 }
 
 .acadIntro-box p {
-    font-size: 35px;
+    font-size: 2vw;
     color: #093d34;
 }
 
 .comps-container {
     position: absolute;
     margin-top: 80vh;
-    margin-left: 50px;
+    margin-left: 2vw;
     animation: appear linear;
     animation-timeline: view();
     animation-range: entry 0 cover 80%;
@@ -709,7 +790,7 @@ html::-webkit-scrollbar {
 
 .smo24-container, .amc24-container, .ctf24-container {
     position: absolute;
-    margin-left: 50px;
+    margin-left: 2vw;
     height: 60vh;
     width: 60%;
     background-color: #093d34;
@@ -888,23 +969,28 @@ html::-webkit-scrollbar {
 .cca-container {
     margin-top: 100vh;
     height: 150vh;
+    z-index: 1;
+}
+
+.cca-container.showbg {
+    background-color: #63c5da;   
 }
 
 .tree-box {
     position: absolute;
     margin-top: 11vh;
-    left: 100px;
+    left: 2vw;
     width: 40vw;
     height: 90vh;
-    background-image: url(imagefolder/sunflower.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
     animation: appear linear;
     animation-timeline: view();
     animation-range: entry 0 cover 70%;
     opacity: 0;
     white-space: pre-line;
+    background-image: url(imagefolder/sunflower.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .tree-box h1 {
@@ -923,8 +1009,8 @@ html::-webkit-scrollbar {
 
 .tree-box #cca-roleBtn,.tree-box #cca-impactBtn, .tree-box #cca-viaBtn  {
     border: none;
-    width: 5em;
-    height: 5em;
+    width: min(10vw, 10vh);
+    aspect-ratio: 1 / 1;
     border-radius: 100%;
     filter: blur(5px);
 }
@@ -934,15 +1020,15 @@ html::-webkit-scrollbar {
     top: 55%;
     left: 55%;
     border: none;
-    width: 7em;
-    height: 4em;
+    width: 10vw;
+    height: 6vw;
     border-radius: 10px;
     font-family: "DM serif display", monospace;
     color: #fff3f0;
     background-color: #1a181b33;
     border-radius: 5px;
     box-shadow: 1px 1px 2px black;
-    font-size: 20px;
+    font-size: 2vw;
 }
 
 #flickerToggle:hover {
@@ -952,9 +1038,10 @@ html::-webkit-scrollbar {
 
 #cca-roleBtn {
     position: absolute;
-    top: 16%;
-    left: 47%;
+    top: 15%;
+    left: 46%;
 }
+
 
 #cca-roleBtn:not(.no-flicker):not(:hover) {
     transition: opacity 0.5s ease, background-color 0.5s ease;
@@ -999,6 +1086,30 @@ html::-webkit-scrollbar {
     opacity: 1;
     background-color: #fff3f0;
     cursor: pointer;
+}
+
+@media screen and (orientation: portrait) and (width <= 500px) {
+    #cca-roleBtn {
+        position: absolute;
+        top: 39%;
+        left: 40%;
+    }
+    #cca-impactBtn {
+        top: 42%;   
+        left: 62%;
+    }
+    
+    #cca-viaBtn {
+        top: 46%;   
+        left: 10%;
+    }
+    .tree-box h1 {
+        bottom: 35.5%;
+        left: 33%;
+    }
+    #flickerToggle {
+        top: 50%;
+    }
 }
 
 .tree-box h2 {
@@ -1099,6 +1210,11 @@ html::-webkit-scrollbar {
 .via-container {
     margin-top: 100vh;
     height: 100vh;
+    z-index: 1;
+}
+
+.via-container.showbg {
+    background-color: #5d8aa8;
 }
 .via-intro {
     position: absolute;
@@ -1108,7 +1224,7 @@ html::-webkit-scrollbar {
     opacity: 0;
     white-space: pre-line;
     margin-top: 14vh;
-    margin-left: 50px;
+    margin-left: 2vw;
     font-family: "DM serif display", monospace;
     font-size: 5vh;
     width: 70vw;
@@ -1127,7 +1243,7 @@ html::-webkit-scrollbar {
     opacity: 0;
     white-space: pre-line;
     margin-top: 80vh;
-    margin-left: 50px;
+    margin-left: 2vw;
     font-family: "DM serif display", monospace;
     font-size: 2.5vw;
     width: 70vw;
@@ -1319,7 +1435,12 @@ html::-webkit-scrollbar {
 /*proj*/
 .proj-container {
     margin-top: 100vh;
+    z-index: 1;
     height: 150vh;
+}
+
+.proj-container.showbg {
+    background-color: #091a3d;
 }
 
 .projects-showcase-box {
@@ -1330,7 +1451,7 @@ html::-webkit-scrollbar {
     opacity: 0;
     white-space: pre-line;
     margin-top: 14vh;
-    margin-left: 50px;
+    margin-left: 2vw;
     width: 80%;
     height: max(500px, 60vh);
     flex-direction: row;
@@ -1623,4 +1744,42 @@ html::-webkit-scrollbar {
     100% {
         transform: translateX(calc(100vw + 50px)) rotate(180deg);
     }
+}
+
+/*no scroll animation*/
+.noscrollanimation {
+    animation: none !important;
+    opacity: 1;
+}
+
+#about-filler {
+    width: 100vw;
+    height: 110vh;
+    background-color: #b4c5e4;
+    top: 470vh;
+    z-index: 0;
+}
+
+#acad-filler {
+    width: 100vw;
+    height: 123vh;
+    background-color: #006dd6;
+    top: 1150vh;
+    z-index: 0;
+}
+
+#cca-filler {
+    width: 100vw;
+    height: 130vh;
+    background-color: #63c5da;
+    top: 1400vh;
+    z-index: 0;
+}
+
+#via-filler {
+    width: 100vw;
+    height: 130vh;
+    background-color: #5d8aa8;
+    top: 1595vh;
+    z-index: 0;
 }

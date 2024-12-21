@@ -20,15 +20,44 @@ crossBtn.onclick = function() {
     document.getElementById(`screen-overlay`).classList.remove(`onsetting`);
 }
 
+//scroll animation
+
+const scroll_list = [`main`, `name-container`, `subject-container`, `subject-graph`, `acadIntro-box`, `comps-container`, `smo24-container`,
+    `amc24-container`, `ctf24-container`, `tree-box`, `ccaText-box`, `via-intro`, `via-grid-container`, `projects-showcase-box`
+]
+
+const container_list = [`main`, `about-target`, `acad-target`, `cca-target`, `via-target`, `proj-target`]
+
 for (let circle of document.getElementsByClassName(`togglecircle`)) {
     circle.onclick = function() {
         if (circle.classList.contains(`toggled`)) {
             circle.classList.remove(`toggled`);
             document.getElementById(circle.id.slice(0, -6) + `bar`).classList.remove(`toggled`);
+
+            if (circle.id == `animate-circle`) {
+                for (let idname of scroll_list) {
+                    document.getElementById(idname).classList.remove(`noscrollanimation`);
+                }
+                for (let containerid of container_list) {
+                    document.getElementById(containerid).classList.remove(`showbg`);
+                }
+                document.getElementById(`name-container-left-text`).classList.remove(`hidetext`);
+            }
         }
         else {
             circle.classList.add(`toggled`);
             document.getElementById(circle.id.slice(0, -6) + `bar`).classList.add(`toggled`);
+
+            if (circle.id == `animate-circle`) {
+                for (let idname of scroll_list) {
+                    document.getElementById(idname).classList.add(`noscrollanimation`);
+                }
+                for (let containerid of container_list) {
+                    document.getElementById(containerid).classList.add(`showbg`);
+                }
+
+                document.getElementById(`name-container-left-text`).classList.add(`hidetext`);
+            }
         }
     }
 }
@@ -550,3 +579,18 @@ viaclosebutton.onclick = function() {
         document.getElementsByClassName(`via-infocus`)[0].classList.remove(`via-infocus`);
     }
 }
+
+function checkOrientation() {
+    setTimeout(() => {
+        if (document.documentElement.clientWidth < 1000 & document.documentElement.clientWidth > document.documentElement.clientHeight) {
+            document.getElementById(`name-container-left-text`).textContent = `Glenn Ang / JPJC / 24S11`;
+            document.getElementById(`name-container-left-header`).textContent = ``;
+        } else {
+            document.getElementById(`name-container-left-header`).textContent = `Glenn Ang`;
+            document.getElementById(`name-container-left-text`).textContent = `JPJC\n24S11`;
+        }
+    checkOrientation()
+    }, 1000)
+}
+
+checkOrientation()
