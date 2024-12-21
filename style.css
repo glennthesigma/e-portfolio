@@ -8,10 +8,6 @@ html::-webkit-scrollbar {
     .buttons, .progress-box, .bgtable {
         display: none;
     }
-    *:not(.gdcube):not(.main) {
-        animation: none !important;
-        opacity: 1;
-    }
 }
 
 .main {
