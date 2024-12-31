@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Glenn's E-Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=DM+Serif+Display:ital@0;1&family=Economica:ital,wght@0,400;0,700;1,400;1,700&family=Texturina:ital,opsz,wght@0,12..72,100..900;1,12..72,100..900&display=swap" rel="stylesheet">
@@ -10,10 +10,24 @@
 <body>
     <div id="screen-overlay" class="screen-overlay"></div>
 
+    <div id="intro-container" class="intro-container">
+        <div id="introcrossBtn" class="introcrossBtn"></div>
+        <h1>Welcome to my portfolio!</h1>
+        <p>NOTE: If you are seeing a white background, you are likely using a browser that does not support scroll animations. Click on the
+            settings icon at the top right to disable scroll animations.
+        </p>
+        <p>I started creating this website in early December with limited initial knowledge of CSS. If this website does not meet your 
+            preferences, please click the link below to be directed to my original E-Portfolio on Google Sites.
+        </p>
+        <p>Otherwise, enjoy learning about my journey as you scroll down the page!</p>
+        <a href="https://sites.google.com/d/1b_b-GWAEZ7eTMAKq4ydhhn_b9gmQ_GVd/p/1Msn96-IBGgT9tclf2RHbEuvpBNa3U-QU/edit">Google Sites E-Portfolio</a><br>
+        <a href="Glenn Ang - CV.pdf" download>My CV</a>
+    </div>
+ 
     <div id="settings-container" class="settings-container">
         <div id="crossBtn" class="crossBtn"></div>
         <div class="options-container">
-            <div class="option">Animations
+            <div class="option">Scroll Animations
                 <div id="animate-bar" class="togglebar">
                     <div id="animate-circle" class="togglecircle"></div>
                 </div>
@@ -38,8 +52,21 @@
             <button id="ccaBtn" class="ccaBtn">cca()</button>
             <button id="viaBtn" class="viaBtn">via()</button>
             <button id="projBtn" class="projBtn">proj()</button>
+            <button id="introBtn" class="introBtn">?</button>
             <button id="settingsBtn" class="settingsBtn"></button>
         </div>
+        <div id="buttonsALT" class="buttonsALT">
+            <button id="aboutBtnALT" class="aboutBtnALT">About Me</button>
+            <button id="acadBtnALT" class="acadBtnALT">Academics</button>
+            <button id="ccaBtnALT" class="ccaBtnALT">CCA</button>
+            <button id="viaBtnALT" class="viaBtnALT">VIA</button>
+            <button id="projBtnALT" class="projBtnALT">My Projects</button>
+            <button id="introBtnALT" class="introBtnALT">Information</button>
+            <button id="settingsBtnALT" class="settingsBtnALT">Settings</button>
+            <button id="exitBtnALT" class="exitBtnALT">EXIT</button>
+        </div>
+        <div id="menuBtncircle" class="menuBtncircle"></div>
+        <div id="menuBtn" class="menuBtn"></div>
         <div id="progress-box" class="progress-box"></div>
         <div class="start-container">
             <div class="bgtable">
@@ -110,12 +137,12 @@
             <h1>Glenn Ang</h1>
         </div>
         <div id="about-target" class="about-container">
-            <div class="name-container">
+            <div id="about-filler"></div>
+            <div id="name-container" class="name-container">
                 <div id="name-container-left" class="item1">
-                    
-                    Glenn Ang
-                    JPJC
-                    24S11
+                    <h1 id="name-container-left-header">Glenn Ang</h1>
+                    <span id="name-container-left-text">JPJC
+                    24S11</span>
                 </div>
                 <div id="name-container-right" class="item2">As a keen learner and constantly on the verge to learn more about the world, I am <span>passionate</span> in all my H2 subjects, Computing, Chemistry and Mathematics. I believe that there is <span>always fun in learning</span>, and I am to make sure that I can enjoy the process of learning as much as possible.
                 </div>
@@ -129,7 +156,7 @@
                     Valorant and Geometry Dash
                 </div>
             </div>
-            <div class="subject-container">
+            <div id="subject-container" class="subject-container">
                 <div id="subjtext">
                     <p id="subjname">SUBJECT: H2 COMPUTING</p>
                     <div id="subjtextcover"></div>
@@ -139,12 +166,14 @@
                     <div id="goalnamecover"></div>
                 </div>
             </div>
-            <img src="imagefolder/j1-results.png" alt="My JC1 Results" class="subject-graph">            
-        </div>
+            <img src="imagefolder/j1-results.png" alt="My JC1 Results" id="subject-graph" class="subject-graph">            
+        </div>  
         <div id="acad-target" class="acad-container">
-            <div class="acadIntro-box"> <h1>Academics</h1><p>As an avid learner, I constantly seek learning and competing opportunities outside of school while maintaining consistency with my subjects in school.</p>
+            <div id="acad-bg" class="acad-bg"></div>
+            <div id="acad-filler"></div>
+            <div id="acadIntro-box" class="acadIntro-box"> <h1>Academics</h1><p>As an avid learner, I constantly seek learning and competing opportunities outside of school while maintaining consistency with my subjects in school.</p>
             </div>
-            <div class="comps-container">
+            <div id="comps-container" class="comps-container">
                 <h1>I have participated in the following Competitions...</h1>
                 <div class="comps-grid-container">
                     <div id="comp1" class="comp1">
@@ -167,7 +196,7 @@
                 <div id="compSq3" class="compSq"></div>
             </div>
             <div id="smo24-target"></div>
-            <div class="smo24-container">
+            <div id="smo24-container" class="smo24-container">
                 <div class="compPhoto"></div>
                 <div class="compCapt">SMO Open 2024</div>
                 <div class="compDesc"><h1>Award: Honourable Mention</h1><p>On May 29 2024, I went for my first Singaporean Mathematics Olympiad (SMO) Open. I have only participated in SMO once in 2023 (Senior Category), and I could only solve 2 questions. This made me lose confidence in my ability. However, that setback pushed me to learn an array of mathematical content during my free time. This allowed me to be more familiar with content out of my O-level and A-level syllabuses. With the help of a 1-month SMO training session and my due diligence, I managed to clinch an Honourable Mention title to my name.
@@ -175,13 +204,13 @@
                 </div>
             </div>
             <div id="amc24-target"></div>
-            <div class="amc24-container">
+            <div id="amc24-container" class="amc24-container">
                 <div class="compPhoto"></div>
                 <div class="compCapt">AMC Senior 2024</div>
                 <div class="compDesc"><h1>Award: Distinction</h1><p>After the SMO results were announced, I discovered another competition — the Australian Mathematics Competition (AMC) — and eagerly seized the opportunity. Initially, I assumed my SMO experience would give me an edge, but the AMC emphasized accuracy, speed, and attention to question phrasing. This frustrated me during practice, as poor time management and overlooking details cost me marks. Without school training sessions, I relied on myself and my peers. Through persistent practice, I improved my focus and efficiency, enabling me to perform well on the competition day and earn a Distinction award.</p></div>
             </div>
             <div id="ctf24-target"></div>
-            <div class="ctf24-container">
+            <div id="ctf24-container" class="ctf24-container">
                 <div class="compPhoto"></div>
                 <div class="compCapt">Whitehacks 2024</div>
                 <div class="compDesc"><h1>Award: Participation</h1><p>Early in 2024, I joined Whitehacks 2024 mainly for the exposure to different aspects of computing such as cybersecurity.
@@ -190,10 +219,13 @@
             </div>
         </div>
         <div id="cca-target" class="cca-container">
-            <div class="tree-box">
-                <h2>Hover on the
+            <div id="cca-bg" class="cca-bg"></div>
+            <div id="cca-filler"></div>
+            <div id="tree-box" class="tree-box">
+                <h2>Click on the
                     flickering
-                    circles!
+                    circles or
+                    the titles!
                 </h2>
                 <h1>Eco Club
                     Member</h1>
@@ -202,14 +234,20 @@
                 <button id="cca-viaBtn"></button>
                 <button id="flickerToggle">Flicker: ON</button>
             </div>
-            <div class="ccaText-box">
+            <div id="ccaText-box" class="ccaText-box">
                 <h1><span id="cca-role" class="ccaText-span">My Role</span> <span id="cca-impact" class="ccaText-span">Its Impact</span> <span id="cca-via" class="ccaText-span">VIA Activities</span></h1><p id="ccaText-p"></p>
                 <div id="ccaText-img"></div>
             </div>
         </div>
         <div id="via-target" class="via-container">
-            <h1 class="via-intro">As someone who wants to be more sociable, I participate in several VIA activities to interact and share meaningful experiences with others.</h1>
-            <div class="via-grid-container">
+            <div id="via-transition"></div>
+            <div id="via-filler"></div>
+            <div id="via-bg" class="via-bg">
+                <div id="via-bg-top"></div>
+                <div id="via-bg-bottom"></div>
+            </div>
+            <h1 id="via-intro" class="via-intro">As someone who wants to be more sociable, I participate in several VIA activities to interact and share meaningful experiences with others.</h1>
+            <div id="via-grid-container" class="via-grid-container">
                 <div id="via1" class="viabox">Green Bazaar</div>
                 <div id="via2" class="viabox">SGcares (June)</div>
                 <div id="via3" class="viabox">Active Learning Festival</div>
@@ -223,12 +261,12 @@
                     <div id="viaexit"></div>
                     <div id="viadesc"><h1 id="viadesc-title"></h1><h2 id="viadesc-details"></h2></div>
                     <div id="viaimg"></div>
-                    <div id="viatext"></div>
+                    <div id="viatext"><h2 id="viatext-text"></h2></div>
                 </div>
             </div>
         </div>
         <div id="proj-target" class="proj-container">
-            <div class="projects-showcase-box">
+            <div id="projects-showcase-box" class="projects-showcase-box">
                 <div class="projects-container">
                     <div id="proj1" class="proj1 fLeft1">
                         <div class="image-sect"></div>
