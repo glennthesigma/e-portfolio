@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Glenn's E-Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=DM+Serif+Display:ital@0;1&family=Economica:ital,wght@0,400;0,700;1,400;1,700&family=Texturina:ital,opsz,wght@0,12..72,100..900;1,12..72,100..900&display=swap" rel="stylesheet">
@@ -10,10 +10,24 @@
 <body>
     <div id="screen-overlay" class="screen-overlay"></div>
 
+    <div id="intro-container" class="intro-container">
+        <div id="introcrossBtn" class="introcrossBtn"></div>
+        <h1>Welcome to my portfolio!</h1>
+        <p>NOTE: If you are seeing a white background, you are likely using a browser that does not support scroll animations. Click on the
+            settings icon at the top right to disable scroll animations.
+        </p>
+        <p>I started creating this website in early December with limited initial knowledge of CSS. If this website does not meet your 
+            preferences, please click the link below to be directed to my original E-Portfolio on Google Sites.
+        </p>
+        <p>Otherwise, enjoy learning about my journey as you scroll down the page!</p>
+        <a href="https://sites.google.com/d/1b_b-GWAEZ7eTMAKq4ydhhn_b9gmQ_GVd/p/1Msn96-IBGgT9tclf2RHbEuvpBNa3U-QU/edit">Google Sites E-Portfolio</a><br>
+        <a href="Glenn Ang - CV.pdf" download>My CV</a>
+    </div>
+ 
     <div id="settings-container" class="settings-container">
         <div id="crossBtn" class="crossBtn"></div>
         <div class="options-container">
-            <div class="option">Animations
+            <div class="option">Scroll Animations
                 <div id="animate-bar" class="togglebar">
                     <div id="animate-circle" class="togglecircle"></div>
                 </div>
@@ -38,8 +52,21 @@
             <button id="ccaBtn" class="ccaBtn">cca()</button>
             <button id="viaBtn" class="viaBtn">via()</button>
             <button id="projBtn" class="projBtn">proj()</button>
+            <button id="introBtn" class="introBtn">?</button>
             <button id="settingsBtn" class="settingsBtn"></button>
         </div>
+        <div id="buttonsALT" class="buttonsALT">
+            <button id="aboutBtnALT" class="aboutBtnALT">About Me</button>
+            <button id="acadBtnALT" class="acadBtnALT">Academics</button>
+            <button id="ccaBtnALT" class="ccaBtnALT">CCA</button>
+            <button id="viaBtnALT" class="viaBtnALT">VIA</button>
+            <button id="projBtnALT" class="projBtnALT">My Projects</button>
+            <button id="introBtnALT" class="introBtnALT">Information</button>
+            <button id="settingsBtnALT" class="settingsBtnALT">Settings</button>
+            <button id="exitBtnALT" class="exitBtnALT">EXIT</button>
+        </div>
+        <div id="menuBtncircle" class="menuBtncircle"></div>
+        <div id="menuBtn" class="menuBtn"></div>
         <div id="progress-box" class="progress-box"></div>
         <div class="start-container">
             <div class="bgtable">
@@ -109,9 +136,8 @@
             <button id="startBtn" class="startBtn  start-animation">start()</button>
             <h1>Glenn Ang</h1>
         </div>
-        <div id="about-filler"></div>
         <div id="about-target" class="about-container">
-            <div id="about-bg"></div>
+            <div id="about-filler"></div>
             <div id="name-container" class="name-container">
                 <div id="name-container-left" class="item1">
                     <h1 id="name-container-left-header">Glenn Ang</h1>
@@ -141,9 +167,10 @@
                 </div>
             </div>
             <img src="imagefolder/j1-results.png" alt="My JC1 Results" id="subject-graph" class="subject-graph">            
-        </div>
-        
+        </div>  
         <div id="acad-target" class="acad-container">
+            <div id="acad-bg" class="acad-bg"></div>
+            <div id="acad-filler"></div>
             <div id="acadIntro-box" class="acadIntro-box"> <h1>Academics</h1><p>As an avid learner, I constantly seek learning and competing opportunities outside of school while maintaining consistency with my subjects in school.</p>
             </div>
             <div id="comps-container" class="comps-container">
@@ -191,12 +218,14 @@
                                                                     Since my friends and I did not have a coding background, claiming a significant position in the event would be barely possible. However, Whitehacks enhanced my passion for computing and educated me on careers that apply these skills into the real world.</p></div>
             </div>
         </div>
-        <div id="acad-filler"></div>
         <div id="cca-target" class="cca-container">
+            <div id="cca-bg" class="cca-bg"></div>
+            <div id="cca-filler"></div>
             <div id="tree-box" class="tree-box">
-                <h2>Hover on the
+                <h2>Click on the
                     flickering
-                    circles!
+                    circles or
+                    the titles!
                 </h2>
                 <h1>Eco Club
                     Member</h1>
@@ -210,8 +239,13 @@
                 <div id="ccaText-img"></div>
             </div>
         </div>
-        <div id="cca-filler"></div>
         <div id="via-target" class="via-container">
+            <div id="via-transition"></div>
+            <div id="via-filler"></div>
+            <div id="via-bg" class="via-bg">
+                <div id="via-bg-top"></div>
+                <div id="via-bg-bottom"></div>
+            </div>
             <h1 id="via-intro" class="via-intro">As someone who wants to be more sociable, I participate in several VIA activities to interact and share meaningful experiences with others.</h1>
             <div id="via-grid-container" class="via-grid-container">
                 <div id="via1" class="viabox">Green Bazaar</div>
@@ -227,11 +261,10 @@
                     <div id="viaexit"></div>
                     <div id="viadesc"><h1 id="viadesc-title"></h1><h2 id="viadesc-details"></h2></div>
                     <div id="viaimg"></div>
-                    <div id="viatext"></div>
+                    <div id="viatext"><h2 id="viatext-text"></h2></div>
                 </div>
             </div>
         </div>
-        <div id="via-filler"></div>
         <div id="proj-target" class="proj-container">
             <div id="projects-showcase-box" class="projects-showcase-box">
                 <div class="projects-container">
